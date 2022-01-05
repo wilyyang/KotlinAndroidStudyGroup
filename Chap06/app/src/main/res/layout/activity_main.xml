@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Lake Louise" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src = "@drawable/ic_launcher_background" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="http://easypub.com010-4935-8541,fhtrjrsht ehdrnr1178@gmail.com http://easypub.com, 010-4935-8541,srthrstjrtsjrfhjtydtsj ehdrnr1178@gmail.com http://easypub.com, 010-4935-8541, ehdrnr1178@gmail.com"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:autoLink="web|email|phone"/>
+</LinearLayout>
