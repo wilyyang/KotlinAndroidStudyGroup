@@ -2,8 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    tools:viewBindingIgnore="true">
 
     <TextView
         android:layout_width="wrap_content"
@@ -14,14 +16,62 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src = "@drawable/ic_launcher_background" />
+        android:background="#f1ffff"
+        android:maxWidth="100dp"
+        android:maxHeight="100dp"
+        android:adjustViewBounds="true"
+        android:src = "@drawable/sokcho" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="http://easypub.com010-4935-8541,fhtrjrsht ehdrnr1178@gmail.com http://easypub.com, 010-4935-8541,srthrstjrtsjrfhjtydtsj ehdrnr1178@gmail.com http://easypub.com, 010-4935-8541, ehdrnr1178@gmail.com"
-        android:maxLines="2"
+        android:ellipsize="start"
+        android:maxLines="1"
+        android:text="가나다라마바사아자차카타파하가나다라마바사아자차카타파하"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:autoLink="web|email|phone"/>
+        android:maxLines="1"
+        android:text="가나다라마바사아자차카타파하가나다라마바사아자차카타파하"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="middle"
+        android:maxLines="1"
+        android:text="가나다라마바사아자차카타파하가나다라마바사아자차카타파하"
+        android:textSize="20sp" />
+
+    <CheckBox
+        android:text="test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="radio1"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="radio2"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="radio3"/>
+    </RadioGroup>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:inputType="textMultiLine"/>
 </LinearLayout>

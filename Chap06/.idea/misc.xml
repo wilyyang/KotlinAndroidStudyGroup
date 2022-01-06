@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap06/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap06/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap06/app/src/main/res/layout/layout_sample.xml" value="0.1" />
+        <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap06/ch6_view/src/main/res/layout/activity_main.xml" value="0.33" />
       </map>
     </option>
   </component>

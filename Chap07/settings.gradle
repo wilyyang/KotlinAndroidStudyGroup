@@ -6,6 +6,5 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
-rootProject.name = "Chap06"
+rootProject.name = "Chap07"
 include ':app'
-include ':ch6_view'
