@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Chap07"
 include ':app'
+include ':ch7_layout'

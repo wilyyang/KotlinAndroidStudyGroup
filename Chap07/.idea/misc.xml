@@ -4,11 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap07/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap07/app/src/main/res/layout/layout_constraint.xml" value="0.25" />
         <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap07/app/src/main/res/layout/layout_frame.xml" value="0.18" />
-        <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap07/app/src/main/res/layout/layout_grid.xml" value="0.22" />
+        <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap07/app/src/main/res/layout/layout_grid.xml" value="0.33" />
         <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap07/app/src/main/res/layout/layout_linear.xml" value="0.14" />
         <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap07/app/src/main/res/layout/layout_linear2.xml" value="0.22" />
         <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap07/app/src/main/res/layout/layout_relative.xml" value="0.22" />
+        <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap07/ch7_layout/src/main/res/layout/activity_main.xml" value="0.18" />
       </map>
     </option>
   </component>
