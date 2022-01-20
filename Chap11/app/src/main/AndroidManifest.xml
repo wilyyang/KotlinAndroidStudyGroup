@@ -10,8 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Chap11">
         <activity
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
+            android:name=".ThreeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TwoActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:parentActivityName=".TwoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
