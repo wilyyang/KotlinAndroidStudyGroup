@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Chap11">
         <activity
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
-            android:name=".ThreeActivity"
+            android:name=".FourActivity"
             android:exported="false" />
+        <activity
+            android:name=".ThreeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
             android:name=".TwoActivity"
             android:exported="false" />

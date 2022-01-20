@@ -24,6 +24,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ThreeActivity::class.java)
             startActivity(intent)
         }
+
+        binding.button4.setOnClickListener {
+            val intent = Intent(this, FourActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
