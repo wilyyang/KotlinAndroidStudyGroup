@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".FourActivity">
 
     <fragment
-        android:name="com.example.chap11.TwoFragment"
+        android:layout_weight="1"
+        android:name="com.example.chap11.fragment.OneFragment"
         android:id="@+id/fragmentView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+        android:layout_height="match_parent">
     </fragment>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:id="@+id/fragmentView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    </LinearLayout>
 
 </LinearLayout>

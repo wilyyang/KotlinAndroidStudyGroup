@@ -14,6 +14,12 @@
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.ActionBar.Primary"/>
 
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -29,4 +35,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="웁스"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>

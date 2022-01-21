@@ -1,20 +1,20 @@
-package com.example.chap11
+package com.example.ch11_jetpack.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.chap11.databinding.FragmentOneBinding
+import com.example.ch11_jetpack.databinding.FragmentThreeBinding
 
-class OneFragment : Fragment() {
-    lateinit var binding: FragmentOneBinding
+class ThreeFragment : Fragment() {
+    lateinit var binding: FragmentThreeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentOneBinding.inflate(inflater, container, false)
+        binding = FragmentThreeBinding.inflate(inflater, container, false)
         return binding.root
     }
 }

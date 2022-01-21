@@ -3,15 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/YangDongguk/Desktop/KotlinAndroidStudyGroup/KotlinAndroidStudyGroup/Chap11/app/src/main/res/layout/activity_four.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/YangDongguk/Desktop/KotlinAndroidStudyGroup/KotlinAndroidStudyGroup/Chap11/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/YangDongguk/Desktop/KotlinAndroidStudyGroup/KotlinAndroidStudyGroup/Chap11/app/src/main/res/layout/activity_three.xml" value="0.22" />
-        <entry key="..\:/Users/YangDongguk/Desktop/KotlinAndroidStudyGroup/KotlinAndroidStudyGroup/Chap11/app/src/main/res/layout/fragment_one.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/YangDongguk/Desktop/KotlinAndroidStudyGroup/KotlinAndroidStudyGroup/Chap11/app/src/main/res/layout/fragment_two.xml" value="0.22826086956521738" />
+        <entry key="app/src/main/res/layout/activity_five.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_four.xml" value="0.13958333333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16" />
-        <entry key="app/src/main/res/layout/activity_three.xml" value="0.67" />
+        <entry key="app/src/main/res/layout/activity_one.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_three.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_two.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_one.xml" value="0.13958333333333334" />
+        <entry key="app/src/main/res/layout/fragment_three.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_two.xml" value="0.13958333333333334" />
+        <entry key="app/src/main/res/layout/item_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_pager.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.1" />
+        <entry key="ch11_jetpack/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="ch11_jetpack/src/main/res/layout/fragment_one.xml" value="0.1" />
+        <entry key="ch11_jetpack/src/main/res/layout/fragment_three.xml" value="0.10260416666666666" />
+        <entry key="ch11_jetpack/src/main/res/layout/fragment_two.xml" value="0.10260416666666666" />
+        <entry key="ch11_jetpack/src/main/res/layout/item_recyclerview.xml" value="0.1" />
+        <entry key="ch11_jetpack/src/main/res/menu/menu_main.xml" value="0.25" />
       </map>
     </option>
   </component>

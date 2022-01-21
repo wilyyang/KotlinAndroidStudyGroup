@@ -15,6 +15,11 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
+        binding.button.setOnClickListener {
+            val intent = Intent(this, OneActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.button2.setOnClickListener {
             val intent = Intent(this, TwoActivity::class.java)
             startActivity(intent)
@@ -27,6 +32,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.button4.setOnClickListener {
             val intent = Intent(this, FourActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.button7.setOnClickListener {
+            val intent = Intent(this, FiveActivity::class.java)
             startActivity(intent)
         }
     }

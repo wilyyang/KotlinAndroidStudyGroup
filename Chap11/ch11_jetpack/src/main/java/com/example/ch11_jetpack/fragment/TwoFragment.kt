@@ -1,11 +1,11 @@
-package com.example.chap11
+package com.example.ch11_jetpack.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.chap11.databinding.FragmentTwoBinding
+import com.example.ch11_jetpack.databinding.FragmentTwoBinding
 
 class TwoFragment : Fragment() {
     lateinit var binding: FragmentTwoBinding

@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Chap11"
 include ':app'
+include ':ch11_jetpack'
