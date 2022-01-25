@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.chap13">
 
+    <queries>
+        <package android:name="com.google.android.apps.maps"/>
+    </queries>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Chap13">
         <activity
+            android:name=".DetailActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="ACTION_EDIT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+
+        </activity>
+        <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing|stateHidden"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
