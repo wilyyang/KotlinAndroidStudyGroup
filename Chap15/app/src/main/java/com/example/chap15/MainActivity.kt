@@ -1,13 +1,16 @@
 package com.example.chap15
 
+import android.app.job.JobInfo
+import android.app.job.JobScheduler
 import android.content.*
+import android.os.*
 import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.os.IBinder
-import android.os.Message
-import android.os.Messenger
 import android.util.Log
+import androidx.core.content.getSystemService
 import com.example.chap15.databinding.ActivityMainBinding
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     // 2. Bind
@@ -59,5 +62,21 @@ class MainActivity : AppCompatActivity() {
         registerReceiver(receiver, IntentFilter("ACTION_RECEIVER"))
         val broadIntent = Intent("ACTION_RECEIVER")
         sendBroadcast(broadIntent)
+
+        // 4. JobScheduler
+        val jobScheduler: JobScheduler? = getSystemService<JobScheduler>()
+        val extras = PersistableBundle()
+        extras.putInt("extra_data", 20)
+
+        jobScheduler?.schedule(JobInfo.Builder(1, ComponentName(this, MyJobService::class.java)).run {
+            setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
+            setRequiresCharging(true)
+            setExtras(extras)
+        }.build())
+
+        GlobalScope.launch {
+            delay(1000L)
+            jobScheduler?.cancel(1)
+        }
     }
 }

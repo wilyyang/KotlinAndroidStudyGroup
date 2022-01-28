@@ -9,18 +9,22 @@ import android.os.Bundle
 import android.os.IBinder
 import android.os.Message
 import android.os.Messenger
-import android.util.Log
+import com.example.ch15_outer.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    lateinit var messenger: Messenger
+    lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
+    }
+
+    fun outerTest(){
         val messengerConnection: ServiceConnection = object : ServiceConnection {
             override fun onServiceConnected(p0: ComponentName?, p1: IBinder?) {
-                messenger = Messenger(p1)
+                var messenger = Messenger(p1)
                 messenger!!.send(
                     Message().apply {
                         what = 20
