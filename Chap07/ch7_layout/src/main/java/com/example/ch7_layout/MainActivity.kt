@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
 import android.view.MotionEvent
+import android.view.View
 import android.widget.CompoundButton
 import com.example.ch7_layout.databinding.ActivityMainBinding
 
@@ -19,13 +20,22 @@ class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
             Log.d("wily", "체크박스 클릭")
         }
 
+        binding.button.setOnClickListener(object: View.OnClickListener{
+            override fun onClick(v: View?) {
+                Log.d("wily", "클릭 이벤트")
+            }
+        })
+
         binding.button.setOnClickListener{
-            Log.d("kking", "클릭 이벤트")
+            Log.d("wily", "클릭 이벤트")
         }
+
         binding.button.setOnLongClickListener {
-            Log.d("kking", "롱클릭 이벤트")
+            Log.d("wily", "롱클릭 이벤트")
             true
         }
+
+
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
