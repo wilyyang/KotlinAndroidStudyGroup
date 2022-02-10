@@ -31,6 +31,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         requestPermission()
+
+//        contentResolver.query(
+//            Uri.parse("content://com.example.chap16"),
+//            null, null, null, null
+//        )
     }
 
     private val PERMISSIONS_REQUEST_CODE = 100
