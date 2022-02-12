@@ -1,11 +1,19 @@
 package com.example.chap17
 
+import android.Manifest
+import android.content.ContentUris
 import android.content.ContentValues
 import android.content.Context
+import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.provider.MediaStore
 import android.util.Log
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.example.chap17.databinding.ActivityMainBinding
 import java.io.BufferedReader
 import java.io.File
@@ -18,10 +26,25 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        fileCode()
+        requestPermission()
     }
 
-    fun databaseCode(){
+    private val PERMISSIONS_REQUEST_CODE = 100
+    private var REQUIRED_PERMISSIONS = arrayOf( Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    private fun requestPermission(){
+        var permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+        if(permissionCheck != PackageManager.PERMISSION_GRANTED){
+            if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)){
+                ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, PERMISSIONS_REQUEST_CODE )
+            }else{
+                ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, PERMISSIONS_REQUEST_CODE )
+            }
+        }else{
+            prefCode()
+        }
+    }
+
+    private fun databaseCode(){
         val writedb = DBHelper(this).writableDatabase
         writedb.execSQL(
             "insert into WILY_TB (name, phone) values (?,?)",
@@ -57,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         readdb.close()
     }
 
-    fun fileCode(){
+    private fun fileCode(){
 
         val file = File(filesDir, "test.txt")
         val writeStream: OutputStreamWriter = file.writer()
@@ -83,8 +106,59 @@ class MainActivity : AppCompatActivity() {
             Log.d("wily", "ExternalStorageState UNMOUNTED")
         }
 
-        val fileExternal: File? = getExternalFilesDir(Environment.DIRECTORY_MUSIC)
-        Log.d("wily", "${fileExternal?.absolutePath}")
+        val fileEx = File(getExternalFilesDir(null), "test.txt")
+        Log.d("wily", "${fileEx?.absolutePath}")
+        val writeStreamEx: OutputStreamWriter = fileEx.writer()
+        writeStreamEx.write("Hello wily!")
+        writeStreamEx.flush()
+        writeStreamEx.close()
+
+        val readStreamEx: BufferedReader = fileEx.reader().buffered()
+        readStreamEx.forEachLine {
+            Log.d("wily", "$it")
+        }
+
+        readStreamEx.close()
+
+        val projection = arrayOf(MediaStore.Images.Media._ID, MediaStore.Images.Media.DISPLAY_NAME)
+        val cursor = contentResolver.query(
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+            projection,
+            null,
+            null,
+            null
+        )
+        cursor?.let {
+            while(cursor.moveToNext()){
+                Log.d("wily!", "_id : ${cursor.getLong(0)}, name : ${cursor.getString(1)}")
+            }
+            cursor.moveToFirst()
+        }
+        val contentUri: Uri = ContentUris.withAppendedId(
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+            cursor!!.getLong(0)
+        )
+
+        val resolver = applicationContext.contentResolver
+        resolver.openInputStream(contentUri).use { stream ->
+            val option = BitmapFactory.Options()
+            option.inSampleSize = 10
+            val bitmap = BitmapFactory.decodeStream(stream, null, option)
+            binding.resultImageView.setImageBitmap(bitmap)
+        }
+    }
+
+    private fun prefCode(){
+        val sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
+        sharedPref.edit().run {
+            putString("data1", "hello")
+            putInt("data2", 10)
+            commit()
+        }
+
+        val data1 = sharedPref.getString("data1", "default")
+        val data2 = sharedPref.getInt("data2", 10)
+        Log.d("wily", "data1 $data1 data2 $data2")
 
     }
 }

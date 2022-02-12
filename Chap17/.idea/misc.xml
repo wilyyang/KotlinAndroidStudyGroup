@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap17/app/src/main/res/layout/activity_main.xml" value="0.12681159420289856" />
+        <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap17/app/src/main/res/xml/settings.xml" value="0.33" />
+        <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap17/app/src/main/res/xml/settings_a.xml" value="0.21979166666666666" />
+        <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap17/app/src/main/res/xml/settings_b.xml" value="0.21979166666666666" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
