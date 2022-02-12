@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap17/app/src/main/res/layout/activity_main.xml" value="0.12681159420289856" />
-        <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap17/app/src/main/res/xml/settings.xml" value="0.33" />
-        <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap17/app/src/main/res/xml/settings_a.xml" value="0.21979166666666666" />
-        <entry key="..\:/Users/Wily/Desktop/etc/KotlinAndroidStudyGroup/Chap17/app/src/main/res/xml/settings_b.xml" value="0.21979166666666666" />
+        <entry key="..\:/Users/YangDongguk/Desktop/KotlinAndroidStudyGroup/KotlinAndroidStudyGroup/Chap17/app/src/main/res/layout/activity_main.xml" value="0.2916666666666667" />
+        <entry key="..\:/Users/YangDongguk/Desktop/KotlinAndroidStudyGroup/KotlinAndroidStudyGroup/Chap17/app/src/main/res/layout/activity_option.xml" value="0.215625" />
+        <entry key="..\:/Users/YangDongguk/Desktop/KotlinAndroidStudyGroup/KotlinAndroidStudyGroup/Chap17/app/src/main/res/layout/activity_setting.xml" value="0.20104166666666667" />
+        <entry key="..\:/Users/YangDongguk/Desktop/KotlinAndroidStudyGroup/KotlinAndroidStudyGroup/Chap17/app/src/main/res/xml/option.xml" value="0.215625" />
+        <entry key="..\:/Users/YangDongguk/Desktop/KotlinAndroidStudyGroup/KotlinAndroidStudyGroup/Chap17/app/src/main/res/xml/settings.xml" value="0.27355072463768115" />
+        <entry key="..\:/Users/YangDongguk/Desktop/KotlinAndroidStudyGroup/KotlinAndroidStudyGroup/Chap17/app/src/main/res/xml/settings_a.xml" value="0.27355072463768115" />
+        <entry key="..\:/Users/YangDongguk/Desktop/KotlinAndroidStudyGroup/KotlinAndroidStudyGroup/Chap17/app/src/main/res/xml/settings_b.xml" value="0.27355072463768115" />
       </map>
     </option>
   </component>

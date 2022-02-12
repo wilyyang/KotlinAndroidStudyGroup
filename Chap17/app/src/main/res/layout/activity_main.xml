@@ -29,9 +29,4 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        class="com.example.chap17.MySettingFragment"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

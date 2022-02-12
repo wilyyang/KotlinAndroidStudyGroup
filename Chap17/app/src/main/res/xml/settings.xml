@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
+        app:key="to_option"
+        app:title="To Option">
+        <intent
+            android:targetClass="com.example.chap17.OptionActivity"
+            android:targetPackage="com.example.chap17">
+            <extra
+                android:name="example_key"
+                android:value="example_value" />
+        </intent>
+
+    </Preference>
+
+    <Preference
+        app:key="hidden"
+        app:title="Hidden">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="http://www.google.com"/>
+    </Preference>
+
     <Preference
         app:key="a"
         app:summary="A Setting summary"
@@ -20,4 +42,14 @@
         app:title="Send feedback"
         app:summary="Report technical issues or suggest new features"/>
 
+    <EditTextPreference
+        app:key="et_id"
+        app:title="ID 설정"
+        app:isPreferenceVisible="false"/>
+
+    <ListPreference
+        app:key="color"
+        app:title="색상 선택"
+        android:entries="@array/my_color"
+        app:entryValues="@array/my_color"/>
 </PreferenceScreen>

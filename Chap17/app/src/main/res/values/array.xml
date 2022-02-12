@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="my_color">
+        <item>RED</item>
+        <item>BLUE</item>
+        <item>YELLOW</item>
+    </array>
+
+    <array name="my_color_values">
+        <item>RED_VAL</item>
+        <item>BLUE_VAL</item>
+        <item>YELLOW_VAL</item>
+    </array>
+</resources>
