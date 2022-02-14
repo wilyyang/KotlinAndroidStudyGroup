@@ -2,13 +2,20 @@ package com.example.chap17
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceManager
 
 class SettingActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
+
+        val sahredPreference = PreferenceManager.getDefaultSharedPreferences(this)
+        val id = sahredPreference.getString("et_id", "")
+        Toast.makeText(applicationContext, "고고고 $id", Toast.LENGTH_SHORT).show()
+
     }
 
     override fun onPreferenceStartFragment(
