@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                 .commit()
 
             mode = "retrofit"
-            supportActionBar?.title = "Volley Test"
+            supportActionBar?.title = "Retrofit Test"
         }
         return super.onOptionsItemSelected(item)
     }
