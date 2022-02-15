@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/YangDongguk/Desktop/KotlinAndroidStudyGroup/KotlinAndroidStudyGroup/Chap18/app/src/main/res/layout/activity_main.xml" value="0.178125" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="ch18_network/src/main/res/layout/activity_main.xml" value="0.12395833333333334" />
+        <entry key="ch18_network/src/main/res/layout/fragment_retrofit.xml" value="0.12395833333333334" />
+        <entry key="ch18_network/src/main/res/layout/fragment_volley.xml" value="0.12395833333333334" />
+        <entry key="ch18_network/src/main/res/layout/item_main.xml" value="0.2" />
+        <entry key="ch18_network/src/main/res/menu/menu_main.xml" value="0.12395833333333334" />
       </map>
     </option>
   </component>
@@ -12,12 +17,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.178125" />
-      </ProjectState>
-    </option>
   </component>
 </project>
