@@ -20,8 +20,10 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.tasks.OnSuccessListener
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -157,8 +159,8 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     var googleMap: GoogleMap? = null
-    override fun onMapReady(map: GoogleMap?) {
-        googleMap = map
+    override fun onMapReady(p0: GoogleMap) {
+        googleMap = p0
 
         val latLng = LatLng(37.566610, 126.978403)
         val position = CameraPosition.Builder()
@@ -166,5 +168,40 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             .zoom(16f)
             .build()
         googleMap?.moveCamera(CameraUpdateFactory.newCameraPosition(position))
+
+        val markerOptions = MarkerOptions()
+        markerOptions.position(latLng)
+        markerOptions.title("서울시청")
+        markerOptions.snippet("Tel:01-120")
+        markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.frug))
+
+        val marker = googleMap?.addMarker(markerOptions)
+
+
+        googleMap?.setOnMapClickListener { latLng ->
+            Log.d("wily7", "click : ${latLng.latitude}, ${latLng.longitude}")
+        }
+
+        googleMap?.setOnMapLongClickListener { latLng ->
+            Log.d("wily7", "long click : ${latLng.latitude}, ${latLng.longitude}")
+        }
+
+        googleMap?.setOnCameraIdleListener {
+            val position = googleMap!!.cameraPosition
+            val zoom = position.zoom
+            val latitude = position.target.latitude
+            val longitude = position.target.longitude
+            Log.d("wily7", "user change : $zoom, $latitude, $longitude")
+        }
+
+        googleMap?.setOnMarkerClickListener { marker ->
+            Log.d("wily7", "OnMarkerClick")
+            marker?.showInfoWindow()
+            true
+        }
+
+        googleMap?.setOnInfoWindowClickListener { marker ->
+            Log.d("wily7", "InfoWindowClick")
+        }
     }
 }
