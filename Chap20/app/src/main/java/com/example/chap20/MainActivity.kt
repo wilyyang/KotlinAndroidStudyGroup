@@ -1,11 +1,23 @@
 package com.example.chap20
 
 import android.app.Activity
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Canvas
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import com.bumptech.glide.Glide
+import com.bumptech.glide.Registry
+import com.bumptech.glide.annotation.GlideModule
+import com.bumptech.glide.module.AppGlideModule
+import com.example.chap20.databinding.ActivityMainBinding
+import com.firebase.ui.storage.images.FirebaseImageLoader
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -15,8 +27,16 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.ktx.storage
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.FileInputStream
+import java.io.InputStream
 
 class MainActivity : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
@@ -43,9 +63,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         auth = Firebase.auth
         auth.createUserWithEmailAndPassword("email", "password")
@@ -106,6 +129,140 @@ class MainActivity : AppCompatActivity() {
         val user2 = User("lee", "lee@a.com", 30, false, false)
         db.collection("users").document("ID01").set(user2)
 
-        db.collection("users").document("ID01")
+        db.collection("users").document("ID01").update("email", "lee@b.com")
+        db.collection("users").document("ID01").update(mapOf("name" to "lee01", "email" to "lee@c.com"))
+        db.collection("users").document("ID01").update(mapOf("avg" to FieldValue.delete()))
+        db.collection("users").document("ID01").delete()
+
+        db.collection("users").get().addOnSuccessListener {
+            result ->
+            for(document in result){
+                Log.d("wily9", "${document.id} => ${document.data}")
+            }
+        }.addOnFailureListener { exception ->
+            Log.d("wily9", "Error getting documents: ", exception)
+        }
+
+        val docRef = db.collection("users").document("ID01")
+        docRef.get().addOnSuccessListener { document ->
+            if(document != null){
+                Log.d("wily9", "DocumentSnapshot data: ${document.data}")
+            }else{
+                Log.d("wily9", "No such document")
+            }
+        }.addOnFailureListener { exception ->
+            Log.d("wily9", "get failed with ", exception)
+        }
+
+        class User2{
+            var name: String? = null
+            var email: String? = null
+            var avg: Int = 0
+        }
+
+        val docRef2 = db.collection("users").document("ID01")
+        docRef2.get().addOnSuccessListener { documentSnapshot ->
+            val selectUser = documentSnapshot.toObject(User2::class.java)
+            Log.d("wily9", "name: ${selectUser?.name}")
+        }
+
+        db.collection("users")
+            .whereEqualTo("name", "lee")
+            .get()
+            .addOnSuccessListener { documents ->
+                for(document in documents){
+                    Log.d("wily9", "${document.id} => ${document.data}")
+                }
+            }.addOnFailureListener { exception ->
+                Log.d("wily9", "Error getting documents: ", exception)
+            }
+    }
+
+    private fun temp(){
+        val bitmap = getBitmapFromView(binding.addPicImageView)
+        val baos = ByteArrayOutputStream()
+        bitmap?.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        val data = baos.toByteArray()
+
+        val storage: FirebaseStorage = Firebase.storage
+        val storageRef: StorageReference = storage.reference
+        val imgRef: StorageReference = storageRef.child("images/a.jpg")
+
+        var uploadTask = imgRef.putBytes(data)
+        uploadTask.addOnFailureListener{
+            Log.d("wily9", "upload fail......")
+        }.addOnCompleteListener { taskSnapshot ->
+            Log.d("wily9", "upload success......")
+        }
+
+        val urlTask = uploadTask.continueWithTask { task ->
+            if(!task.isSuccessful){
+                task.exception?.let {
+                    throw it
+                }
+            }
+            imgRef.downloadUrl
+        }.addOnCompleteListener { task ->
+            if(task.isSuccessful){
+                val downloadUri = task.result
+                Log.d("wily9", "upload url ...$downloadUri")
+            }else{
+
+            }
+        }
+
+        val stream = FileInputStream(File("/storage/emulated/0/temp.jpg"))
+        val streamTask = imgRef.putStream(stream)
+
+        var file = Uri.fromFile(File("/storage/emulated/0/temp.jpg"))
+        val uriTask = imgRef.putFile(file)
+
+        val deleteRef: StorageReference = storageRef.child("images/a.jpg")
+        deleteRef.delete()
+            .addOnFailureListener {
+                Log.d("wily9", "failure.........")
+            }
+            .addOnCompleteListener {
+                Log.d("wily9", "success.........")
+            }
+
+        val ONE_MEGABYTE: Long = 1024 * 1024
+        imgRef.getBytes(ONE_MEGABYTE).addOnSuccessListener {
+            val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
+            binding.addPicImageView.setImageBitmap(bitmap)
+        }.addOnFailureListener {
+            Log.d("wily9", "failure.............")
+        }
+
+        val localFile = File.createTempFile("images", "jpg")
+        imgRef.getFile(localFile).addOnSuccessListener {
+            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+            binding.addPicImageView.setImageBitmap(bitmap)
+        }.addOnFailureListener{
+
+        }
+
+        imgRef.downloadUrl.addOnSuccessListener {
+            Log.d("wily9", "download uri : $it")
+        }.addOnFailureListener {  }
+
+        Glide.with(this).load(imgRef).into(binding.addPicImageView)
+    }
+
+    private fun getBitmapFromView(view: View): Bitmap? {
+        var bitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+        var canvas = Canvas(bitmap)
+        view.draw(canvas)
+        return bitmap
+    }
+}
+
+@GlideModule
+class MyAppGlideModule : AppGlideModule() {
+    override fun registerComponents(context: Context, glide: Glide, registry: Registry) {
+        registry.append(
+            StorageReference::class.java, InputStream::class.java,
+            FirebaseImageLoader.Factory()
+        )
     }
 }
